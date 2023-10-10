@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <style>
+    .containerGraphic {
+      display: flex;
+      justify-content: center;
+    }
+
+    .infoGraphic {
+      width: 50%;
+    }
+  </style>
+
+  <body>
+    <div class="containerGraphic">
+      <div class="infoGraphic">
+        <h1>Gráfico em linha</h1>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="infoGraphic">
+        <h1>Gráfico em barra</h1>
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const lineChart = document.getElementById("lineChart");
+  const barChart = document.getElementById("barChart");
+
+  new Chart(lineChart, {
+    type: "line",
+    data: {
+      labels: ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+      datasets: [
+        {
+          label: "Umidade",
+          data: [80, 82, 80, 85, 80, 83],
+          borderWidth: 3,
+        },
+        {
+          label: "Temperatura",
+          data: [30, 29, 28, 25, 22, 23],
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  new Chart(barChart, {
+    type: "bar",
+    data: {
+      labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+      datasets: [
+        {
+          label: "Umidade",
+          data: [90, 89, 93, 87, 88, 82],
+          borderWidth: 3,
+        },
+        {
+          label: "Temperatura",
+          data: [22, 24, 27, 23, 20, 18],
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+</script>
